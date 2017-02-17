@@ -29,7 +29,7 @@ public class TicTacToe {
 
     }
 
-    public public boolean move(int x, int y) {
+    public boolean move(int x, int y) {
         if (board[x][y] == " X " || board[x][y] == " O ") {
             return false;
         }
@@ -108,23 +108,18 @@ public class TicTacToe {
                     if (game.move(xX, yY) == true) {
                         board[xX][yY] = " X ";
                         break;
-                    } 
-                    else {
+                    } else {
                         System.out.println("Move is not allowed, repeat your move.");
                     }
 
-                } 
-                else {
+                } else {
                     System.out.println("Wrong input.");
                 }
 
             }
-
+            if(game.checkWhoWon()!= null) break;
             game.printBoard();
-            if (game.checkWhoWon() != null) {
-                System.out.println("Thank you for the game! \n Palyer " + game.checkWhoWon() + " won!");
-                break;
-            }
+        
             System.out.println("your move " + playerO);
             String ab = "no";
             while (ab == "no") {
@@ -138,17 +133,15 @@ public class TicTacToe {
                     } else {
                         System.out.println("Move is not allowed, repeat your move.");
                     }
-                } 
-                else {
+                } else {
                     System.out.println("Wrong input.");
                 }
             }
-            game.printBoard();
-            if (game.checkWhoWon() != null) {
-                System.out.println("Thank you for the game! \n Palyer " + game.checkWhoWon() + " won!");
-                break;
-            }
         }
+        game.printBoard();
+        System.out.println("Thank you for the game! \n Palyer " + game.checkWhoWon() + " won!");
+                
+        
     }
 }
-
+    
